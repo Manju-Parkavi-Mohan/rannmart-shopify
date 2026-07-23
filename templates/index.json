@@ -9,165 +9,424 @@
  */
 {
   "sections": {
-    "6a3bb789-ce10-45f5-ae67-e2063ef8c76b": {
-      "type": "image-banner",
+    "slideshow": {
+      "type": "slideshow",
       "blocks": {
-        "template--18309637636369__6a3bb789-ce10-45f5-ae67-e2063ef8c76b-168016437761699a6e-0": {
-          "type": "heading",
+        "slide-0": {
+          "type": "slide",
           "settings": {
-            "heading": "Generated test data",
-            "heading_size": "h1"
+            "image": "shopify://shop_images/car_image4.jpg",
+            "image_overlay_opacity": 20,
+            "heading": "Upgrade Your Ride with Premium Accessories",
+            "heading_size": "h1",
+            "subheading": "",
+            "button_label": "Shop Accessories",
+            "link": "shopify://collections/all",
+            "button_style_secondary": false,
+            "show_text_box": false,
+            "box_align": "middle-center",
+            "text_alignment": "center",
+            "text_alignment_mobile": "center",
+            "color_scheme": "scheme-custom-slideshow"
           }
         },
-        "template--18309637636369__6a3bb789-ce10-45f5-ae67-e2063ef8c76b-168016437761699a6e-1": {
-          "type": "text",
+        "slide_Qy93Lb": {
+          "type": "slide",
           "settings": {
-            "text": "A theme and populated test store by Shopify to help you test commerce primitives.",
-            "text_style": "body"
+            "image": "shopify://shop_images/car_image6.jpg",
+            "image_overlay_opacity": 40,
+            "heading": "Upgrade Your Ride with Premium Accessories",
+            "heading_size": "h1",
+            "subheading": "",
+            "button_label": "Shop Accessories",
+            "link": "shopify://collections/all",
+            "button_style_secondary": false,
+            "show_text_box": false,
+            "box_align": "middle-center",
+            "text_alignment": "center",
+            "text_alignment_mobile": "center",
+            "color_scheme": "scheme-custom-slideshow"
           }
         },
-        "template--18309637636369__6a3bb789-ce10-45f5-ae67-e2063ef8c76b-168016437761699a6e-2": {
-          "type": "buttons",
+        "slide_E6iVMY": {
+          "type": "slide",
           "settings": {
-            "button_label_1": "Shop products",
-            "button_link_1": "shopify://collections/all",
-            "button_style_secondary_1": false,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false
+            "image": "shopify://shop_images/car_image2.jpg",
+            "image_overlay_opacity": 40,
+            "heading": "Upgrade Your Ride with Premium Accessories",
+            "heading_size": "h1",
+            "subheading": "",
+            "button_label": "Shop Accessories",
+            "link": "shopify://collections/all",
+            "button_style_secondary": false,
+            "show_text_box": false,
+            "box_align": "middle-center",
+            "text_alignment": "center",
+            "text_alignment_mobile": "center",
+            "color_scheme": "scheme-custom-slideshow"
+          }
+        },
+        "slide_xqgXcc": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/car_image3.jpg",
+            "image_overlay_opacity": 40,
+            "heading": "Upgrade Your Ride with Premium Accessories",
+            "heading_size": "h1",
+            "subheading": "",
+            "button_label": "Shop Accessories",
+            "link": "shopify://collections/all",
+            "button_style_secondary": false,
+            "show_text_box": false,
+            "box_align": "middle-center",
+            "text_alignment": "center",
+            "text_alignment_mobile": "center",
+            "color_scheme": "scheme-custom-slideshow"
+          }
+        },
+        "slide_rHKFHW": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/car_image3.jpg",
+            "image_overlay_opacity": 40,
+            "heading": "Upgrade Your Ride with Premium Accessories",
+            "heading_size": "h1",
+            "subheading": "",
+            "button_label": "Shop Accessories",
+            "link": "shopify://collections/all",
+            "button_style_secondary": false,
+            "show_text_box": false,
+            "box_align": "middle-center",
+            "text_alignment": "center",
+            "text_alignment_mobile": "center",
+            "color_scheme": "scheme-custom-slideshow"
           }
         }
       },
       "block_order": [
-        "template--18309637636369__6a3bb789-ce10-45f5-ae67-e2063ef8c76b-168016437761699a6e-0",
-        "template--18309637636369__6a3bb789-ce10-45f5-ae67-e2063ef8c76b-168016437761699a6e-1",
-        "template--18309637636369__6a3bb789-ce10-45f5-ae67-e2063ef8c76b-168016437761699a6e-2"
+        "slide-0",
+        "slide_Qy93Lb",
+        "slide_E6iVMY",
+        "slide_xqgXcc",
+        "slide_rHKFHW"
       ],
-      "custom_css": [],
       "settings": {
-        "image": "shopify://shop_images/theme_cover_image.jpg",
-        "image_overlay_opacity": 0,
-        "image_height": "medium",
-        "desktop_content_position": "middle-left",
-        "show_text_box": true,
-        "desktop_content_alignment": "left",
-        "color_scheme": "background-1",
+        "layout": "full_bleed",
+        "slide_height": "large",
+        "slider_visual": "counter",
+        "auto_rotate": true,
+        "change_slides_speed": 5,
         "image_behavior": "none",
-        "mobile_content_alignment": "center",
-        "stack_images_on_mobile": true,
-        "show_text_below": true
+        "show_text_below": true,
+        "accessibility_info": "Slideshow about our brand"
       }
     },
-    "featured_collection": {
-      "type": "featured-collection",
-      "settings": {
-        "title": "<strong>Featured products</strong>",
-        "heading_size": "h1",
-        "description": "",
-        "show_description": false,
-        "description_style": "body",
-        "collection": "automated-collection",
-        "products_to_show": 10,
-        "columns_desktop": 3,
-        "full_width": false,
-        "show_view_all": false,
-        "view_all_style": "solid",
-        "enable_desktop_slider": true,
-        "color_scheme": "background-1",
-        "image_ratio": "portrait",
-        "show_secondary_image": true,
-        "show_vendor": false,
-        "show_rating": false,
-        "enable_quick_add": false,
-        "columns_mobile": "2",
-        "swipe_on_mobile": false,
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
-    },
-    "f1552b18-6017-4231-810d-74e61da22c37": {
-      "type": "image-with-text",
+    "blocks_6ATEqB": {
+      "type": "_blocks",
       "blocks": {
-        "template--18309637636369__f1552b18-6017-4231-810d-74e61da22c37-1680164422d7fb2efc-0": {
-          "type": "heading",
+        "ai_gen_block_a9c4fa3_MHPxFR": {
+          "type": "ai_gen_block_a9c4fa3",
+          "name": "Car Accessories",
           "settings": {
-            "heading": "Stay hydrated",
-            "heading_size": "h1"
+            "heading": "Car Accessories",
+            "subheading": "Discover our most popular automotive accessories",
+            "heading_alignment": "center",
+            "collection": "products",
+            "products_to_show": 12,
+            "show_vendor": false,
+            "show_button": true,
+            "button_text": "View Product",
+            "cards_per_row_desktop": 4,
+            "cards_per_row_tablet": 3,
+            "cards_per_row_mobile": 1,
+            "card_gap": 20,
+            "container_width": 1000,
+            "section_padding_top": 32,
+            "section_padding_bottom": 32,
+            "show_dots": true,
+            "arrow_background": "#ffffff",
+            "arrow_color": "#0e1b4d",
+            "arrow_hover_background": "#4770db",
+            "dot_color": "#0e1b4d",
+            "dot_active_color": "#4770db",
+            "background_color": "#eff0f5",
+            "heading_color": "#0e1b4d",
+            "subheading_color": "#0e1b4d",
+            "card_background": "#ffffff",
+            "card_border_color": "#e5e5e5",
+            "product_title_color": "#0e1b4d",
+            "vendor_color": "#666666",
+            "price_color": "#0e1b4d",
+            "sale_price_color": "#e32402",
+            "button_background": "#4770db",
+            "button_text_color": "#ffffff",
+            "button_hover_background": "#0e1b4d",
+            "badge_background": "#e32402",
+            "badge_text_color": "#ffffff",
+            "heading_size": 36,
+            "subheading_size": 16,
+            "product_title_size": 16,
+            "price_size": 18,
+            "card_border_radius": 18,
+            "card_border_thickness": 1,
+            "button_border_radius": 40,
+            "badge_border_radius": 4
+          },
+          "blocks": {}
+        },
+        "ai_gen_block_57fcce1_GDLxUN": {
+          "type": "ai_gen_block_57fcce1",
+          "name": "Trending Products",
+          "settings": {
+            "heading": "Trending products",
+            "collection": "vehicles-and-parts-example-products",
+            "products_count": 12,
+            "button_text": "Add to cart",
+            "autoplay": true,
+            "autoplay_speed": 5,
+            "container_width": 500,
+            "heading_size": 34,
+            "background_color": "#eff0f5",
+            "heading_color": "#0e1b4d",
+            "card_background": "#ffffff",
+            "card_border_color": "#e0e0e0",
+            "text_color": "#0e1b4d",
+            "price_color": "#4770db",
+            "button_background": "#4770db",
+            "button_text_color": "#ffffff",
+            "button_hover_background": "#0e1b4d",
+            "button_hover_text_color": "#ffffff",
+            "arrow_background": "#ffffff",
+            "arrow_hover_background": "#4770db",
+            "arrow_color": "#0e1b4d",
+            "dot_color": "#0e1b4d",
+            "dot_active_color": "#4770db"
+          },
+          "blocks": {}
+        },
+        "ai_gen_block_a9c4fa3_bXRmkx": {
+          "type": "ai_gen_block_a9c4fa3",
+          "name": "Digital and AI Tools",
+          "settings": {
+            "heading": "Digital and AI Tools",
+            "subheading": "Smarter Tools for a Smarter World",
+            "heading_alignment": "center",
+            "collection": "e-books",
+            "products_to_show": 12,
+            "show_vendor": false,
+            "show_button": true,
+            "button_text": "View Product",
+            "cards_per_row_desktop": 4,
+            "cards_per_row_tablet": 3,
+            "cards_per_row_mobile": 1,
+            "card_gap": 20,
+            "container_width": 1000,
+            "section_padding_top": 32,
+            "section_padding_bottom": 32,
+            "show_dots": true,
+            "arrow_background": "#ffffff",
+            "arrow_color": "#0e1b4d",
+            "arrow_hover_background": "#4770db",
+            "dot_color": "#0e1b4d",
+            "dot_active_color": "#4770db",
+            "background_color": "#eff0f5",
+            "heading_color": "#0e1b4d",
+            "subheading_color": "#0e1b4d",
+            "card_background": "#ffffff",
+            "card_border_color": "#e5e5e5",
+            "product_title_color": "#0e1b4d",
+            "vendor_color": "#666666",
+            "price_color": "#0e1b4d",
+            "sale_price_color": "#e32402",
+            "button_background": "#4770db",
+            "button_text_color": "#ffffff",
+            "button_hover_background": "#0e1b4d",
+            "badge_background": "#e32402",
+            "badge_text_color": "#ffffff",
+            "heading_size": 36,
+            "subheading_size": 16,
+            "product_title_size": 16,
+            "price_size": 18,
+            "card_border_radius": 18,
+            "card_border_thickness": 1,
+            "button_border_radius": 40,
+            "badge_border_radius": 4
+          },
+          "blocks": {}
+        },
+        "ai_gen_block_57fcce1_jx9a9g": {
+          "type": "ai_gen_block_57fcce1",
+          "name": "Trending Products",
+          "disabled": true,
+          "settings": {
+            "heading": "Trending products",
+            "collection": "vehicles-and-parts-example-products",
+            "products_count": 12,
+            "button_text": "Add to cart",
+            "autoplay": true,
+            "autoplay_speed": 3,
+            "container_width": 900,
+            "heading_size": 30,
+            "background_color": "#eff0f5",
+            "heading_color": "#0e1b4d",
+            "card_background": "#ffffff",
+            "card_border_color": "#e0e0e0",
+            "text_color": "#0e1b4d",
+            "price_color": "#4770db",
+            "button_background": "#4770db",
+            "button_text_color": "#ffffff",
+            "button_hover_background": "#0e1b4d",
+            "button_hover_text_color": "#ffffff",
+            "arrow_background": "#ffffff",
+            "arrow_hover_background": "#4770db",
+            "arrow_color": "#0e1b4d",
+            "dot_color": "#0e1b4d",
+            "dot_active_color": "#4770db"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_a9c4fa3_MHPxFR",
+        "ai_gen_block_57fcce1_GDLxUN",
+        "ai_gen_block_a9c4fa3_bXRmkx",
+        "ai_gen_block_57fcce1_jx9a9g"
+      ],
+      "name": "Products ",
+      "settings": {}
+    },
+    "multicolumn_XREbjX": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_ydabWa": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/Copilot_20260306_142015.png",
+            "title": "Affordable Pricing",
+            "text": "<p>Premium accessories at prices that make sense for everyday customers.</p>",
+            "link_label": "",
+            "link": ""
           }
         },
-        "template--18309637636369__f1552b18-6017-4231-810d-74e61da22c37-1680164422d7fb2efc-1": {
-          "type": "text",
+        "column_pkir8h": {
+          "type": "column",
           "settings": {
-            "text": "<p>Try our wax subscription so you can fly high, but never dry.</p>",
-            "text_style": "body"
+            "image": "shopify://shop_images/Copilot_20260306_142404.png",
+            "title": "Premium Quality",
+            "text": "<p>Carefully selected accessories built for durability and performance.</p>",
+            "link_label": "",
+            "link": ""
           }
         },
-        "template--18309637636369__f1552b18-6017-4231-810d-74e61da22c37-1680164422d7fb2efc-2": {
-          "type": "button",
+        "column_DU4mRX": {
+          "type": "column",
           "settings": {
-            "button_label": "Get waxy now",
-            "button_link": "shopify://products/selling-plans-ski-wax"
+            "image": "shopify://shop_images/Copilot_20260306_142445.png",
+            "title": "Reliable Products",
+            "text": "<p>Products sourced from trusted suppliers to ensure quality and reliability.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_fgwwEK": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/Copilot_20260306_142732.png",
+            "title": "Customer First",
+            "text": "<p>We focus on providing the best experience for drivers and riders.</p>",
+            "link_label": "",
+            "link": ""
           }
         }
       },
       "block_order": [
-        "template--18309637636369__f1552b18-6017-4231-810d-74e61da22c37-1680164422d7fb2efc-0",
-        "template--18309637636369__f1552b18-6017-4231-810d-74e61da22c37-1680164422d7fb2efc-1",
-        "template--18309637636369__f1552b18-6017-4231-810d-74e61da22c37-1680164422d7fb2efc-2"
+        "column_ydabWa",
+        "column_pkir8h",
+        "column_DU4mRX",
+        "column_fgwwEK"
       ],
+      "name": "t:sections.multicolumn.presets.name",
       "settings": {
-        "image": "shopify://shop_images/theme_cover_image.jpg",
-        "height": "adapt",
-        "desktop_image_width": "medium",
-        "layout": "image_first",
-        "desktop_content_position": "middle",
-        "desktop_content_alignment": "left",
-        "content_layout": "no-overlap",
-        "color_scheme": "accent-1",
-        "image_behavior": "none",
-        "mobile_content_alignment": "left",
-        "padding_top": 60,
-        "padding_bottom": 60
-      }
-    },
-    "38cdf60f-e431-43b5-aac3-7e6215447d67": {
-      "type": "collection-list",
-      "blocks": {
-        "template--18309637636369__38cdf60f-e431-43b5-aac3-7e6215447d67-1680164898782d94ce-0": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": "hydrogen"
-          }
-        },
-        "template--18309637636369__38cdf60f-e431-43b5-aac3-7e6215447d67-1680164898782d94ce-1": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": "automated-collection"
-          }
-        }
-      },
-      "block_order": [
-        "template--18309637636369__38cdf60f-e431-43b5-aac3-7e6215447d67-1680164898782d94ce-0",
-        "template--18309637636369__38cdf60f-e431-43b5-aac3-7e6215447d67-1680164898782d94ce-1"
-      ],
-      "settings": {
-        "title": "<strong>Collections</strong>",
+        "title": "Why Choose Rannmart",
         "heading_size": "h1",
-        "image_ratio": "portrait",
-        "columns_desktop": 2,
-        "color_scheme": "background-1",
-        "show_view_all": false,
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "button_label": "Get equipped",
+        "button_link": "shopify://collections/all",
+        "columns_desktop": 4,
+        "column_alignment": "left",
+        "background_style": "primary",
+        "color_scheme": "",
         "columns_mobile": "1",
         "swipe_on_mobile": false,
         "padding_top": 36,
         "padding_bottom": 36
       }
+    },
+    "image_with_text_aJFWDN": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_jeFH9t": {
+          "type": "heading",
+          "settings": {
+            "heading": "About Rannmart Enterprises",
+            "heading_size": "h1"
+          }
+        },
+        "text_w93RFh": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Rannmart Enterprises is dedicated to providing high-quality car and bike accessories that improve the driving and riding experience.<br/><br/>We carefully select products that combine durability, style, and practicality so customers can upgrade their vehicles with confidence.</p>",
+            "text_style": "body"
+          }
+        },
+        "button_FAtLXE": {
+          "type": "button",
+          "settings": {
+            "button_label": "Browse Products",
+            "button_link": "shopify://collections/all",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_jeFH9t",
+        "text_w93RFh",
+        "button_FAtLXE"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/car-accessories-lifestyle-photography.png",
+        "height": "medium",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "image_behavior": "none",
+        "content_layout": "no-overlap",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "",
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "custom_liquid_A8RgFV": {
+      "type": "custom-liquid",
+      "name": "t:sections.custom-liquid.presets.name",
+      "settings": {
+        "custom_liquid": "{% assign selected_products = \n\"car-mount-mobile-phone-magnetic-folding-navigation,\n40-oz-tumbler-with-handle\" | split: \",\" %}\n\n{% if selected_products contains product.handle %}\n\n{% assign random_number = \"now\" | date: \"%S\" | modulo: 4 | plus: 2 %}\n\n<div style=\"\nbackground:#fff3cd;\ncolor:#856404;\npadding:10px;\nborder-radius:8px;\nmargin-top:10px;\nfont-weight:bold;\ntext-align:center;\nborder:1px solid #ffeeba;\">\n\n⚠️ Only {{ random_number }} left in stock! Hurry up.\n\n</div>\n\n{% endif %}",
+        "color_scheme": "",
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
     }
   },
   "order": [
-    "6a3bb789-ce10-45f5-ae67-e2063ef8c76b",
-    "featured_collection",
-    "f1552b18-6017-4231-810d-74e61da22c37",
-    "38cdf60f-e431-43b5-aac3-7e6215447d67"
+    "slideshow",
+    "blocks_6ATEqB",
+    "multicolumn_XREbjX",
+    "image_with_text_aJFWDN",
+    "custom_liquid_A8RgFV"
   ]
 }

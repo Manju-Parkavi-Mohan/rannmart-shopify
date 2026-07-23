@@ -1,0 +1,600 @@
+{% doc %}
+  @prompt
+    Create a new section with a vertical auto-scrolling carousel that displays content cards in a single column, scrolling upward in a smooth infinite loop. Show 4 items visible at a time in one row layout. Include pause-on-hover functionality and make it responsive for mobile devices.
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-vertical-carousel-{{ ai_gen_id }} {
+    display: block;
+    width: {{ block.settings.desktop_width_percent }}%;
+    max-width: 100%;
+    margin: 0 auto;
+    overflow: hidden;
+    position: relative;
+    background-color: {{ block.settings.background_color }};
+    border-radius: {{ block.settings.border_radius }}px;
+    padding: {{ block.settings.container_padding }}px;
+  }
+
+  .ai-vertical-carousel-track-{{ ai_gen_id }} {
+    display: flex;
+    flex-direction: column;
+    gap: {{ block.settings.card_gap }}px;
+    animation: ai-vertical-scroll-{{ ai_gen_id }} {{ block.settings.scroll_speed }}s linear infinite;
+  }
+
+  .ai-vertical-carousel-{{ ai_gen_id }}:hover .ai-vertical-carousel-track-{{ ai_gen_id }} {
+    animation-play-state: paused;
+  }
+
+  @keyframes ai-vertical-scroll-{{ ai_gen_id }} {
+    0% {
+      transform: translateY(0);
+    }
+    100% {
+      transform: translateY(-50%);
+    }
+  }
+
+  .ai-vertical-carousel-card-{{ ai_gen_id }} {
+    background-color: {{ block.settings.card_background }};
+    border-radius: {{ block.settings.card_border_radius }}px;
+    padding: {{ block.settings.card_padding }}px;
+    border: {{ block.settings.card_border_thickness }}px solid {{ block.settings.card_border_color }};
+    box-shadow: 0 {{ block.settings.card_shadow_vertical }}px {{ block.settings.card_shadow_blur }}px rgba(0, 0, 0, {{ block.settings.card_shadow_opacity }});
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    flex-shrink: 0;
+  }
+
+  .ai-vertical-carousel-card-{{ ai_gen_id }}:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 {{ block.settings.card_shadow_vertical | plus: 4 }}px {{ block.settings.card_shadow_blur | plus: 4 }}px rgba(0, 0, 0, {{ block.settings.card_shadow_opacity | plus: 0.1 }});
+  }
+
+  .ai-vertical-carousel-card-image-{{ ai_gen_id }} {
+    width: 100%;
+    height: {{ block.settings.card_image_height }}px;
+    object-fit: cover;
+    border-radius: {{ block.settings.card_image_radius }}px;
+    margin-bottom: 12px;
+  }
+
+  .ai-vertical-carousel-card-image-placeholder-{{ ai_gen_id }} {
+    width: 100%;
+    height: {{ block.settings.card_image_height }}px;
+    background-color: #f4f4f4;
+    border-radius: {{ block.settings.card_image_radius }}px;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .ai-vertical-carousel-card-image-placeholder-{{ ai_gen_id }} svg {
+    width: 60%;
+    height: 60%;
+    opacity: 0.3;
+  }
+
+  .ai-vertical-carousel-card-title-{{ ai_gen_id }} {
+    font-size: {{ block.settings.card_title_size }}px;
+    font-weight: 600;
+    color: {{ block.settings.card_title_color }};
+    margin: 0 0 8px;
+    line-height: 1.3;
+  }
+
+  .ai-vertical-carousel-card-description-{{ ai_gen_id }} {
+    font-size: {{ block.settings.card_description_size }}px;
+    color: {{ block.settings.card_description_color }};
+    margin: 0;
+    line-height: 1.5;
+  }
+
+  @media screen and (max-width: 749px) {
+    .ai-vertical-carousel-{{ ai_gen_id }} {
+      width: 100%;
+    }
+
+    .ai-vertical-carousel-card-{{ ai_gen_id }} {
+      padding: {{ block.settings.card_padding | times: 0.8 }}px;
+    }
+
+    .ai-vertical-carousel-card-title-{{ ai_gen_id }} {
+      font-size: {{ block.settings.card_title_size | times: 0.9 }}px;
+    }
+
+    .ai-vertical-carousel-card-description-{{ ai_gen_id }} {
+      font-size: {{ block.settings.card_description_size | times: 0.9 }}px;
+    }
+  }
+{% endstyle %}
+
+<vertical-carousel-{{ ai_gen_id }} class="ai-vertical-carousel-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
+  <div class="ai-vertical-carousel-track-{{ ai_gen_id }}">
+    {% for i in (1..8) %}
+      {% liquid
+        assign card_title_key = 'card_' | append: i | append: '_title'
+        assign card_description_key = 'card_' | append: i | append: '_description'
+        assign card_image_key = 'card_' | append: i | append: '_image'
+        
+        assign card_title = block.settings[card_title_key]
+        assign card_description = block.settings[card_description_key]
+        assign card_image = block.settings[card_image_key]
+      %}
+
+      <div class="ai-vertical-carousel-card-{{ ai_gen_id }}">
+        {% if card_image %}
+          <img
+            src="{{ card_image | image_url: width: 600 }}"
+            alt="{{ card_image.alt | escape }}"
+            loading="lazy"
+            width="600"
+            height="{{ block.settings.card_image_height }}"
+            class="ai-vertical-carousel-card-image-{{ ai_gen_id }}"
+          >
+        {% else %}
+          <div class="ai-vertical-carousel-card-image-placeholder-{{ ai_gen_id }}">
+            {{ 'image' | placeholder_svg_tag }}
+          </div>
+        {% endif %}
+
+        {% if card_title != blank %}
+          <h3 class="ai-vertical-carousel-card-title-{{ ai_gen_id }}">{{ card_title }}</h3>
+        {% endif %}
+
+        {% if card_description != blank %}
+          <p class="ai-vertical-carousel-card-description-{{ ai_gen_id }}">{{ card_description }}</p>
+        {% endif %}
+      </div>
+    {% endfor %}
+
+    {% for i in (1..8) %}
+      {% liquid
+        assign card_title_key = 'card_' | append: i | append: '_title'
+        assign card_description_key = 'card_' | append: i | append: '_description'
+        assign card_image_key = 'card_' | append: i | append: '_image'
+        
+        assign card_title = block.settings[card_title_key]
+        assign card_description = block.settings[card_description_key]
+        assign card_image = block.settings[card_image_key]
+      %}
+
+      <div class="ai-vertical-carousel-card-{{ ai_gen_id }}">
+        {% if card_image %}
+          <img
+            src="{{ card_image | image_url: width: 600 }}"
+            alt="{{ card_image.alt | escape }}"
+            loading="lazy"
+            width="600"
+            height="{{ block.settings.card_image_height }}"
+            class="ai-vertical-carousel-card-image-{{ ai_gen_id }}"
+          >
+        {% else %}
+          <div class="ai-vertical-carousel-card-image-placeholder-{{ ai_gen_id }}">
+            {{ 'image' | placeholder_svg_tag }}
+          </div>
+        {% endif %}
+
+        {% if card_title != blank %}
+          <h3 class="ai-vertical-carousel-card-title-{{ ai_gen_id }}">{{ card_title }}</h3>
+        {% endif %}
+
+        {% if card_description != blank %}
+          <p class="ai-vertical-carousel-card-description-{{ ai_gen_id }}">{{ card_description }}</p>
+        {% endif %}
+      </div>
+    {% endfor %}
+  </div>
+</vertical-carousel-{{ ai_gen_id }}>
+
+<script>
+  (function() {
+    class VerticalCarousel{{ ai_gen_id }} extends HTMLElement {
+      constructor() {
+        super();
+      }
+
+      connectedCallback() {
+        this.track = this.querySelector('.ai-vertical-carousel-track-{{ ai_gen_id }}');
+        this.setupInfiniteScroll();
+      }
+
+      setupInfiniteScroll() {
+        if (!this.track) return;
+
+        this.addEventListener('mouseenter', () => {
+          this.track.style.animationPlayState = 'paused';
+        });
+
+        this.addEventListener('mouseleave', () => {
+          this.track.style.animationPlayState = 'running';
+        });
+      }
+    }
+
+    customElements.define('vertical-carousel-{{ ai_gen_id }}', VerticalCarousel{{ ai_gen_id }});
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Vertical carousel",
+  "tag": null,
+  "settings": [
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "range",
+      "id": "desktop_width_percent",
+      "label": "Desktop width",
+      "min": 50,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "default": 100
+    },
+    {
+      "type": "range",
+      "id": "container_padding",
+      "label": "Container padding",
+      "min": 0,
+      "max": 60,
+      "step": 4,
+      "unit": "px",
+      "default": 20
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "range",
+      "id": "border_radius",
+      "label": "Border radius",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "default": 18
+    },
+    {
+      "type": "header",
+      "content": "Scroll settings"
+    },
+    {
+      "type": "range",
+      "id": "scroll_speed",
+      "label": "Scroll speed",
+      "min": 10,
+      "max": 60,
+      "step": 5,
+      "unit": "s",
+      "default": 30
+    },
+    {
+      "type": "range",
+      "id": "card_gap",
+      "label": "Gap between cards",
+      "min": 8,
+      "max": 40,
+      "step": 4,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "header",
+      "content": "Card style"
+    },
+    {
+      "type": "color",
+      "id": "card_background",
+      "label": "Card background",
+      "default": "#f9f9f9"
+    },
+    {
+      "type": "range",
+      "id": "card_padding",
+      "label": "Card padding",
+      "min": 8,
+      "max": 40,
+      "step": 4,
+      "unit": "px",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "card_border_radius",
+      "label": "Card border radius",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "card_border_thickness",
+      "label": "Card border thickness",
+      "min": 0,
+      "max": 8,
+      "step": 1,
+      "unit": "px",
+      "default": 1
+    },
+    {
+      "type": "color",
+      "id": "card_border_color",
+      "label": "Card border color",
+      "default": "#e0e0e0"
+    },
+    {
+      "type": "range",
+      "id": "card_shadow_opacity",
+      "label": "Card shadow opacity",
+      "min": 0,
+      "max": 0.5,
+      "step": 0.1,
+      "default": 0.1
+    },
+    {
+      "type": "range",
+      "id": "card_shadow_vertical",
+      "label": "Card shadow vertical",
+      "min": 0,
+      "max": 20,
+      "step": 2,
+      "unit": "px",
+      "default": 4
+    },
+    {
+      "type": "range",
+      "id": "card_shadow_blur",
+      "label": "Card shadow blur",
+      "min": 0,
+      "max": 30,
+      "step": 5,
+      "unit": "px",
+      "default": 10
+    },
+    {
+      "type": "header",
+      "content": "Card image"
+    },
+    {
+      "type": "range",
+      "id": "card_image_height",
+      "label": "Image height",
+      "min": 100,
+      "max": 400,
+      "step": 20,
+      "unit": "px",
+      "default": 200
+    },
+    {
+      "type": "range",
+      "id": "card_image_radius",
+      "label": "Image border radius",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "default": 8
+    },
+    {
+      "type": "header",
+      "content": "Card text"
+    },
+    {
+      "type": "range",
+      "id": "card_title_size",
+      "label": "Title size",
+      "min": 12,
+      "max": 32,
+      "step": 2,
+      "unit": "px",
+      "default": 18
+    },
+    {
+      "type": "color",
+      "id": "card_title_color",
+      "label": "Title color",
+      "default": "#0e1b4d"
+    },
+    {
+      "type": "range",
+      "id": "card_description_size",
+      "label": "Description size",
+      "min": 10,
+      "max": 24,
+      "step": 2,
+      "unit": "px",
+      "default": 14
+    },
+    {
+      "type": "color",
+      "id": "card_description_color",
+      "label": "Description color",
+      "default": "#666666"
+    },
+    {
+      "type": "header",
+      "content": "Card 1"
+    },
+    {
+      "type": "image_picker",
+      "id": "card_1_image",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "card_1_title",
+      "label": "Title",
+      "default": "Premium Quality"
+    },
+    {
+      "type": "textarea",
+      "id": "card_1_description",
+      "label": "Description",
+      "default": "Experience the finest automotive accessories"
+    },
+    {
+      "type": "header",
+      "content": "Card 2"
+    },
+    {
+      "type": "image_picker",
+      "id": "card_2_image",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "card_2_title",
+      "label": "Title",
+      "default": "Fast Shipping"
+    },
+    {
+      "type": "textarea",
+      "id": "card_2_description",
+      "label": "Description",
+      "default": "Quick delivery to your doorstep"
+    },
+    {
+      "type": "header",
+      "content": "Card 3"
+    },
+    {
+      "type": "image_picker",
+      "id": "card_3_image",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "card_3_title",
+      "label": "Title",
+      "default": "Expert Support"
+    },
+    {
+      "type": "textarea",
+      "id": "card_3_description",
+      "label": "Description",
+      "default": "24/7 customer service available"
+    },
+    {
+      "type": "header",
+      "content": "Card 4"
+    },
+    {
+      "type": "image_picker",
+      "id": "card_4_image",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "card_4_title",
+      "label": "Title",
+      "default": "Secure Payment"
+    },
+    {
+      "type": "textarea",
+      "id": "card_4_description",
+      "label": "Description",
+      "default": "Safe and encrypted transactions"
+    },
+    {
+      "type": "header",
+      "content": "Card 5"
+    },
+    {
+      "type": "image_picker",
+      "id": "card_5_image",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "card_5_title",
+      "label": "Title",
+      "default": "Easy Returns"
+    },
+    {
+      "type": "textarea",
+      "id": "card_5_description",
+      "label": "Description",
+      "default": "Hassle-free return policy"
+    },
+    {
+      "type": "header",
+      "content": "Card 6"
+    },
+    {
+      "type": "image_picker",
+      "id": "card_6_image",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "card_6_title",
+      "label": "Title",
+      "default": "Warranty Included"
+    },
+    {
+      "type": "textarea",
+      "id": "card_6_description",
+      "label": "Description",
+      "default": "All products come with warranty"
+    },
+    {
+      "type": "header",
+      "content": "Card 7"
+    },
+    {
+      "type": "image_picker",
+      "id": "card_7_image",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "card_7_title",
+      "label": "Title",
+      "default": "Trusted Brand"
+    },
+    {
+      "type": "textarea",
+      "id": "card_7_description",
+      "label": "Description",
+      "default": "Thousands of satisfied customers"
+    },
+    {
+      "type": "header",
+      "content": "Card 8"
+    },
+    {
+      "type": "image_picker",
+      "id": "card_8_image",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "card_8_title",
+      "label": "Title",
+      "default": "Best Value"
+    },
+    {
+      "type": "textarea",
+      "id": "card_8_description",
+      "label": "Description",
+      "default": "Competitive prices guaranteed"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Vertical carousel"
+    }
+  ]
+}
+{% endschema %}
